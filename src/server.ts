@@ -1,3 +1,6 @@
+import * as dotenv from 'dotenv'
+dotenv.config()
+
 import 'reflect-metadata'
 import fastify from 'fastify'
 import mercurius from 'mercurius'
@@ -20,4 +23,7 @@ async function main() {
   app.listen({ port: 4000 })
 }
 
-main()
+main().catch((e) => {
+  console.error(e)
+  process.exit(1)
+})
